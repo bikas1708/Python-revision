@@ -1,0 +1,1 @@
+In this tutorial, you’ll learn how to read a text file in Python with the open function. Learning how to safely open, read, and close text files is an important skill to learn as you begin working with different types of files. In this tutorial, you’ll learn how to use context managers to safely and efficiently handle opening files.
