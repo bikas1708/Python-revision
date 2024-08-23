@@ -11,7 +11,6 @@ def open_file(f_name: str) -> str:
     with open(f_name) as f:
         return f.read()
     
-
 def get_freq(text: str) -> list[tuple[str, int]]:
     lowered_txt: str = text.lower()
     words: list[str] = re.findall(r"\b\w+\b", lowered_txt)
@@ -22,28 +21,22 @@ def get_freq(text: str) -> list[tuple[str, int]]:
 
 
 def main() -> None:
-    
-    Flag: str = input("Do you want to read a file? Y/N :").lower()
-    
-    if Flag == "y" :
+    flag: str = input("Do you want to read a file? Y/N :").lower()
+    if flag == "y" :
         while True:
             try:
                 fname : str = input('Enter File Name: ')
-                text : str = open_file(fname).strip()
-            
+                text : str = open_file(fname).strip()        
             except FileNotFoundError:
                 print(f"Error: The file '{fname}' was not found.")
             except PermissionError:
-                print(f"Error: You do not have permission to read the file '{file_name}'.")
+                print(f"Error: You do not have permission to read the file '{fname}'.")
             except Exception as e:
                 print(f"An unexpected error occurred: {e}")
             else:
                 break
-        
-    if Flag == "n" :
-        text: str = input("Enter your text: ").strip()   
-        
-
+    if flag == "n" :
+        text: str = input("Enter your text: ").strip()
     word_freq: list[tuple[str, int]] = get_freq(text)
 
     for word, count in word_freq:
