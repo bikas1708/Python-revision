@@ -26,7 +26,7 @@ def main() -> None:
         while True:
             try:
                 fname : str = input('Enter File Name: ')
-                text : str = open_file(fname).strip()        
+                text : str = open_file(fname).strip()  
             except FileNotFoundError:
                 print(f"Error: The file '{fname}' was not found.")
             except PermissionError:
