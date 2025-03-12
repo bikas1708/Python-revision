@@ -7,10 +7,12 @@ directory as the code.
 No need to make it unnecessarily complex
 """
 
+
 def open_file(f_name: str) -> str:
     with open(f_name) as f:
         return f.read()
-    
+
+
 def get_freq(text: str) -> list[tuple[str, int]]:
     lowered_txt: str = text.lower()
     words: list[str] = re.findall(r"\b\w+\b", lowered_txt)
@@ -22,11 +24,11 @@ def get_freq(text: str) -> list[tuple[str, int]]:
 
 def main() -> None:
     flag: str = input("Do you want to read a file? Y/N :").lower()
-    if flag == "y" :
+    if flag == "y":
         while True:
             try:
-                fname : str = input('Enter File Name: ')
-                text : str = open_file(fname).strip()  
+                fname: str = input("Enter File Name: ")
+                text: str = open_file(fname).strip()
             except FileNotFoundError:
                 print(f"Error: The file '{fname}' was not found.")
             except PermissionError:
@@ -35,7 +37,7 @@ def main() -> None:
                 print(f"An unexpected error occurred: {e}")
             else:
                 break
-    if flag == "n" :
+    if flag == "n":
         text: str = input("Enter your text: ").strip()
     word_freq: list[tuple[str, int]] = get_freq(text)
 
